@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이커머스 상품 AI 검수 관제 시스템</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <h1>AI Product Inspector</h1>
+            <p>초고속 비동기 검수 엔진을 통해 대용량 상품을 신속하게 분석합니다.</p>
+        </header>
+
+        <section class="upload-section">
+            <h2>1. 상품 리스트 업로드</h2>
+            <div class="file-drop-area" id="file-drop-area">
+                <span class="file-icon">📄</span>
+                <span class="file-msg">여기로 엑셀 파일(input.xlsx)을 드래그하거나 클릭하세요.</span>
+                <input type="file" id="excel-file" accept=".xlsx" class="file-input">
+            </div>
+            <div id="file-info" class="hidden">선택된 파일: <span id="file-name"></span></div>
+        </section>
+
+        <section class="keywords-section">
+            <h2>2. 유의 키워드 입력</h2>
+            <div class="keyword-input-container">
+                <input type="text" id="keyword-input" placeholder="키워드 직접 입력 후 Enter">
+                <button id="add-keyword-btn">추가</button>
+                <label for="keyword-excel-file" class="secondary-btn">엑셀 업로드</label>
+                <input type="file" id="keyword-excel-file" accept=".xlsx" class="hidden">
+            </div>
+            <div class="keyword-tags" id="keyword-tags">
+                <!-- 키워드 태그 동적 생성 -->
+            </div>
+        </section>
+
+        <section class="action-section">
+            <button id="start-btn" class="primary-btn" disabled>검수 시작하기</button>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <h2>3. 검수 결과 요약</h2>
+            <div class="summary-container">
+                <div class="summary-card total">
+                    <h3>총 검수 건수</h3>
+                    <p id="summary-total">0</p>
+                </div>
+                <div class="summary-card warning">
+                    <h3>🚨 유의 상품</h3>
+                    <p id="summary-warning">0</p>
+                </div>
+                <div class="summary-card ok">
+                    <h3>✅ 정상 상품</h3>
+                    <p id="summary-ok">0</p>
+                </div>
+            </div>
+            <button id="download-btn" class="primary-btn download-btn">엑셀 파일 다운로드</button>
+        </section>
+
+        <div id="loading-overlay" class="hidden glass-overlay">
+            <div class="spinner"></div>
+            <p style="color: white; font-weight: 600;">AI가 꼼꼼하게 검수하고 있습니다...</p>
+            <p style="color: #cbd5e1; font-size: 0.9rem; margin-top: 10px;">데이터 양에 따라 수십 초가 소요될 수 있습니다.<br>절대 창을 닫지 마세요!</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
