@@ -179,7 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const resultsSection = document.getElementById('results-section');
     const summaryTotal = document.getElementById('summary-total');
     const summaryWarning = document.getElementById('summary-warning');
     const summaryOk = document.getElementById('summary-ok');
